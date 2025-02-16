@@ -1,0 +1,296 @@
+:root{
+    color-scheme: light dark;
+    --x: 0;
+    --y: 0;
+    --blue: #836FFF;
+    --dark: #212529;
+    --light: #f8f9fa;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat.ttf);
+}
+
+*{
+    font-family: Montserrat;
+}
+
+body{
+    background-color: var(--dark);
+    transition: all .3s ease-in-out;
+}
+
+nav{
+    position: fixed;
+    background-color: var(--dark);
+    width: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    z-index: 99;
+    transition: all .3s ease-in-out;
+}
+
+h1{
+    color: var(--light);
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: normal;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+.menu{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.menu__btn{
+    color: var(--light);
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: normal;
+    line-height: 1;
+    cursor: pointer;
+    margin-left: 1rem;
+    padding: 4px 0;
+    position: relative;
+    transition: all .3s ease-in-out;
+}
+
+.menu__btn::before{
+    content: "";
+    background-color: var(--blue);
+    height: 1px;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .3s ease-in-out;
+}
+
+.menu__btn::after{
+    content: "";
+    background-color: var(--blue);
+    height: 1px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: all .3s ease-in-out;
+}
+
+.menu__btn:hover::after, .menu__btn:hover::before, .menu__btn.active::after, .menu__btn.active::before{
+    width: 100%;
+}
+
+.menu__btn.active, .menu__btn:hover{
+    color: var(--blue);
+}
+
+#bio{
+    min-height: 100vh;
+}
+
+#bio h2{
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: normal;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.socials a svg{
+    fill: var(--light);
+    transition: all .3s ease-in-out;
+}
+
+.socials a:hover svg{
+    fill: var(--blue);
+}
+
+.custom-card{
+    border: inset 1px var(--blue);
+    display: block;
+    text-decoration: none;
+    aspect-ratio: 3/4;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 15px -5px var(--blue);
+    background-image: radial-gradient(circle at var(--x) var(--y), var(--dark) 5px, var(--dark) 3rem);
+    position: relative;
+    transform: translateY(0px);
+    transition: all .3s ease-in-out;
+}
+
+.custom-card:hover{
+    transform: translateY(-5px);
+    background-image: radial-gradient(circle at var(--x) var(--y), var(--blue) 0px, var(--dark) 3rem);
+}
+
+.custom-card.no-hover:hover{
+    transform: translateY(0);
+}
+
+.text--light{
+    color: var(--light);
+    transition: all .3s ease-in-out;
+}
+
+a.text--light{
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+
+a.text--light:hover{
+    color: var(--blue);
+}
+
+.custom-card__title{
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: normal;
+    line-height: 1;
+    margin-bottom: .5rem;
+    text-align: center;
+    transition: all .3s ease-in-out;
+}
+
+.custom-card__description, .bio__content{
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: 1.2;
+    margin-bottom: 0; 
+    text-align: center;
+    transition: all .3s ease-in-out;
+}
+
+.custom-card svg{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    fill: var(--light);
+    transition: all .3s ease-in-out;
+}
+
+.custom-card:hover svg{
+    opacity: 1;
+}
+
+footer p{
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: normal;
+    line-height: 1;
+    transition: all .3s ease-in-out;
+}
+
+#switchMode{
+    background-color: var(--light);
+    border: 2px solid var(--light);
+    padding: 0;
+    border-radius: 25px;
+    width: 40px;
+    aspect-ratio: 2/1;
+    position: relative;
+    transition: all .3s ease-in-out;
+}
+
+.switchMode__inner{
+    background-color: transparent;
+    border: unset;
+    border-radius: 50%;
+    height:100%;
+    aspect-ratio: 1;
+    margin-left: 0;
+    transform: translateX(0);
+    box-shadow: inset 5px 0px var(--dark), inset 5px 0px 1px 2px var(--dark);
+    -moz-box-shadow: inset 5px 0px var(--dark), inset 5px 0px 1px 2px var(--dark);
+    transition: all .3s ease-in-out;
+}
+
+/*Light Theme*/
+
+body.light, body.light nav{
+    background-color: var(--light); 
+}
+
+body.light h1, body.light .menu__btn, body.light .text--light{
+    color: var(--dark);
+}
+
+body.light .menu__btn.active, body.light .menu__btn:hover, body.light a.text--light:hover{
+    color: var(--blue);
+}
+
+body.light .socials a svg, body.light .custom-card svg{
+    fill: var(--dark);
+}
+
+body.light .socials a:hover svg{
+    fill: var(--blue);
+}
+
+body.light .custom-card{
+    background-image: radial-gradient(circle at var(--x) var(--y), var(--light) 5px, var(--light) 3rem);
+}
+
+body.light .custom-card:hover{
+    background-image: radial-gradient(circle at var(--x) var(--y), var(--blue) 0px, var(--light) 3rem);
+}
+
+body.light #switchMode{
+    background-color: var(--dark);
+    border: 2px solid var(--dark);
+}
+
+body.light .switchMode__inner{
+    background-color: var(--light);
+    margin-left: auto;
+    margin-left: 100%;
+    transform: translateX(-100%);    
+    box-shadow: inset 16px 0px var(--transparent), inset 16px 0px 1px 2px var(--transparent);
+    -moz-box-shadow: inset 16px 0px var(--transparent), inset 16px 0px 1px 2px var(--transparent);
+}
+
+/*End Light Theme*/
+
+@keyframes glow{
+    0%{
+        box-shadow: 0px 2px 15px -5px var(--blue);
+    }
+    25%{
+        box-shadow: 0px 2px 15px 0px var(--blue);
+    }
+    50%{
+        box-shadow: 0px 2px 15px -5px var(--blue);
+    }
+    100%{
+        box-shadow: 0px 2px 15px -5px var(--blue);
+    }
+}
+
+@media (prefers-reduced-motion) {
+    .custom-card{
+        animation-name: none!important;
+    }
+
+    .custom-card:not(.no-hover):hover{
+        box-shadow: 0px 5px 15px 0px var(--blue);
+    }
+}
